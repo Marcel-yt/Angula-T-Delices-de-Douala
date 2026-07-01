@@ -1,0 +1,12 @@
+<article class="card">
+  <img class="thumb" [src]="restaurant()?.image ?? ('assets/images/restaurants/restaurant-' + (restaurant()?.id ?? 0) + '.jpg')" alt="{{ restaurant()?.name }}">
+  <div class="content">
+    <h2 class="name">{{ restaurant()?.name }}</h2>
+    <p class="meta">{{ restaurant()?.district }} — {{ restaurant()?.specialty }}</p>
+
+    <div class="rating-row">
+      <app-star-rating [currentRating]="restaurant()?.currentRating ?? 0" (ratingChanged)="onRatingChanged($event)"></app-star-rating>
+      <div class="score">({{ restaurant()?.currentRating ?? 0 }}/5)</div>
+    </div>
+  </div>
+</article> 

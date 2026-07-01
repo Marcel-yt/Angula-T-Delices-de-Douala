@@ -1,0 +1,8 @@
+/* Espace entre header / footer et le contenu principal */
+.content {
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+	max-width: 1100px;
+	margin: 0 auto;
+}
+

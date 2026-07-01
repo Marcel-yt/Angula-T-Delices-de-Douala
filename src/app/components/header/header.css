@@ -1,0 +1,28 @@
+:host {
+	display: block;
+	background: #316FB5; /* primary blue */
+	color: white;
+}
+.container {
+	max-width: 1000px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0.75rem 1rem;
+}
+.title {
+	margin: 0;
+	font-size: 1.25rem;
+	font-weight: 700;
+}
+.counter {
+	background: rgba(255,255,255,0.08);
+	color: #FDC416; /* secondary yellow/orange */
+	padding: 0.25rem 0.5rem;
+	border-radius: 6px;
+	font-weight: 600;
+}
+.count {
+	margin-left: 0.25rem;
+}

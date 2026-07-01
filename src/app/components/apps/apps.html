@@ -1,0 +1,8 @@
+<app-header [ratedCount]="ratedCount()"></app-header>
+
+<main class="content">
+  <!-- on passe le tableau concret avec restaurants() -->
+  <app-restaurant-list [restaurants]="restaurants()" (restaurantRated)="onRestaurantRated($event)"></app-restaurant-list>
+</main>
+
+<app-footer></app-footer>

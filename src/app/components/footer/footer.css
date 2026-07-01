@@ -1,0 +1,12 @@
+:host {
+	display: block;
+	background: #316FB5; /* primary blue */
+	color: white;
+}
+.container {
+	max-width: 1000px;
+	margin: 0 auto;
+	padding: 0.5rem 1rem;
+	text-align: center;
+	font-weight: 600;
+}

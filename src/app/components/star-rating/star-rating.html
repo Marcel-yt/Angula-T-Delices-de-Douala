@@ -1,0 +1,13 @@
+<div class="stars" role="radiogroup" aria-label="Rating">
+@for (i of [1,2,3,4,5]; track i) {
+	<span
+		class="star"
+		role="radio"
+		[attr.aria-checked]="isFilled(i)"
+		(mouseenter)="onHover(i)"
+		(mouseleave)="onLeave()"
+		(click)="setRating(i)">
+		<span class="glyph" [class.gold]="isFilled(i)">★</span>
+	</span>
+}
+</div>

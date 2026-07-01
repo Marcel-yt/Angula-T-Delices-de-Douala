@@ -1,0 +1,6 @@
+/* Star rating styles */
+.stars { display: flex; gap: 0.25rem; align-items: center; }
+.star { cursor: pointer; user-select: none; font-size: 1.25rem; line-height: 1; }
+.glyph { color: #ccc; transition: color 120ms ease; }
+.glyph.gold { color: #FDC416; }
+.star:focus { outline: 2px solid rgba(49,111,181,0.15); }
