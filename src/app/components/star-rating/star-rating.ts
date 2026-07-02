@@ -24,7 +24,10 @@ export class StarRating {
   }
 
   setRating(index: number) {
-    this.ratingChanged.emit(index);
+    const current = this.currentRating() ?? 0;
+    // toggle: clicking the same star removes the rating
+    const toEmit = index === current ? 0 : index;
+    this.ratingChanged.emit(toEmit);
   }
 
   isFilled(index: number) {

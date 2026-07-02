@@ -9,4 +9,6 @@ import { Component, input } from '@angular/core';
 export class Header {
   // Reçoit le nombre de restos notés (valeur primitive)
   readonly ratedCount = input<number | undefined>();
+  // Reçoit la note moyenne (valeur primitive)
+  readonly average = input<number | undefined>();
 }

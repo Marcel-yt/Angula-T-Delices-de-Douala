@@ -1,8 +1,13 @@
-<app-header [ratedCount]="ratedCount()"></app-header>
+<app-header [ratedCount]="ratedCount()" [average]="averageRating()"></app-header>
 
 <main class="content">
-  <!-- on passe le tableau concret avec restaurants() -->
-  <app-restaurant-list [restaurants]="restaurants()" (restaurantRated)="onRestaurantRated($event)"></app-restaurant-list>
+  <div class="controls">
+    <button class="toggle" (click)="filterHigh.update(v => !v)">
+      {{ filterHigh() ? 'Montrer tout' : 'Filtrer ≥ 4★' }}
+    </button>
+  </div>
+  <!-- pass displayedRestaurants() which is filtered & sorted -->
+  <app-restaurant-list [restaurants]="displayedRestaurants()" (restaurantRated)="onRestaurantRated($event)"></app-restaurant-list>
 </main>
 
 <app-footer></app-footer>

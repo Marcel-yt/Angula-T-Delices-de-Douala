@@ -23,6 +23,27 @@ export class Apps {
   // nombre de restaurants notés (>=1)
   readonly ratedCount = computed(() => this.restaurants().filter(r => (r.currentRating ?? 0) > 0).length);
 
+  // average rating of rated restaurants (one decimal), 0 if none
+  readonly averageRating = computed(() => {
+    const rated = this.restaurants().filter(r => (r.currentRating ?? 0) > 0);
+    if (rated.length === 0) return 0;
+    const sum = rated.reduce((s, r) => s + (r.currentRating ?? 0), 0);
+    return Math.round((sum / rated.length) * 10) / 10;
+  });
+
+  // filter toggle: show only restaurants rated >=4
+  filterHigh = signal(false);
+
+  // displayed restaurants: optionally filtered and sorted by rating desc
+  readonly displayedRestaurants = computed(() => {
+    let list = this.restaurants().slice();
+    if (this.filterHigh()) {
+      list = list.filter(r => (r.currentRating ?? 0) >= 4);
+    }
+    list.sort((a, b) => (b.currentRating ?? 0) - (a.currentRating ?? 0));
+    return list;
+  });
+
   // méthode minimale pour recevoir l'event (sera utilisée plus tard)
   onRestaurantRated(payload: { id: number; rating: number }) {
     this.restaurants.update(list =>

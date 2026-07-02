@@ -4,3 +4,7 @@
 .glyph { color: #ccc; transition: color 120ms ease; }
 .glyph.gold { color: #FDC416; }
 .star:focus { outline: 2px solid rgba(49,111,181,0.15); }
+
+/* hover scale animation */
+.star .glyph { display: inline-block; transition: transform 120ms ease; }
+.star:hover .glyph { transform: scale(1.18); }

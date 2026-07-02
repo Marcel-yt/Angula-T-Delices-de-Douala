@@ -6,3 +6,7 @@
 	margin: 0 auto;
 }
 
+.controls { display: flex; justify-content: flex-end; margin: 0 1rem 1rem 1rem; }
+.toggle { background: #316FB5; color: #fff; border: none; padding: 0.4rem 0.6rem; border-radius: 6px; cursor: pointer; }
+.toggle:hover { background: #245a93; }
+
