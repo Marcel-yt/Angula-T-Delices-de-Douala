@@ -1,0 +1,76 @@
+<section class="carte">
+	<h2>Carte des plats</h2>
+
+	@if (platsResource.isLoading()) {
+			<p>Chargement des plats...</p>
+	} @else {
+			@if (platsResource.error()) {
+				<p>Erreur lors du chargement: {{ platsResource.error()?.message ?? 'Erreur' }}</p>
+			} @else {
+				@if ((plats() || []).length === 0) {
+					<p>Aucun plat trouvé.</p>
+				} @else {
+				<div class="controls-filters">
+					<button (click)="category.set('Toutes')" class="filter-btn" [class.active]="category() === 'Toutes'">Toutes</button>
+					<button (click)="category.set('Plats')" class="filter-btn" [class.active]="category() === 'Plats'">Plats</button>
+					<button (click)="category.set('Grillades')" class="filter-btn" [class.active]="category() === 'Grillades'">Grillades</button>
+					<button (click)="category.set('Végétarien')" class="filter-btn" [class.active]="category() === 'Végétarien'">Végétarien</button>
+					<button (click)="category.set('Boissons')" class="filter-btn" [class.active]="category() === 'Boissons'">Boissons</button>
+
+					<input class="search" placeholder="Recherche par nom" (input)="search.set($any($event.target).value)" />
+
+					<select class="restaurant-filter" (change)="restaurantFilter.set($any($event.target).value)">
+						@for (r of restaurantsList(); track r) {
+							<option value="{{ r }}">{{ r }}</option>
+						}
+					</select>
+				</div>
+
+				@if (platDuJour()) {
+					<section class="plat-du-jour">
+												<div class="hero" style="--hero-image: url('{{ platDuJour()?.image ? platDuJour()?.image : '/assets/images/plats/plat1.jpg' }}')">
+													<div class="hero-content">
+														<div class="hero-section-title">Plat du jour</div>
+														<button class="rotation-toggle" (click)="rotationPaused.set(!rotationPaused())">{{ rotationPaused() ? '▶︎' : '❚❚' }}</button>
+														<h3 class="hero-title">{{ platDuJour()?.nom }}</h3>
+														<div class="hero-sub">{{ platDuJour()?.restaurantNom ?? '—' }}</div>
+														<div class="hero-meta">
+															<span class="hero-category">{{ platDuJour()?.categorie }}</span>
+															<span class="hero-price">{{ platDuJour()?.prix | currency:'XAF':'symbol':'1.0-0' }}</span>
+														</div>
+														@if (!platDuJour()?.disponible) {
+															<div class="hero-badge">Épuisé</div>
+														}
+													</div>
+												</div>
+
+						<div class="plat-du-jour-info">
+							<div class="meta">
+								<span class="disponibilite" [class.available]="platDuJour()?.disponible">{{ platDuJour()?.disponible ? 'Disponible' : 'Indisponible' }}</span>
+							</div>
+						</div>
+					</section>
+				}
+
+				<div class="grid">
+					@for (plat of filteredPlats(); track plat.id) {
+						<article class="plat-card" [class.highlight]="plat.id === platDuJour()?.id" [class.unavailable]="!plat.disponible">
+							<img class="plat-image" src="{{ plat.image ? plat.image : '/assets/images/plats/plat1.jpg' }}" alt="{{ plat.nom }}" (error)="onImgError($event)">
+							<div class="plat-header">
+								<div class="nom">{{ plat.nom }} — <span class="restaurant">{{ plat.restaurantNom ?? '—' }}</span></div>
+								@if (!plat.disponible) {
+									<span class="badge">Épuisé</span>
+								}
+							</div>
+							<div class="meta">
+								<span class="categorie">Catégorie: {{ plat.categorie }}</span>
+								<span class="disponibilite" [class.available]="plat.disponible">{{ plat.disponible ? 'Disponible' : 'Indisponible' }}</span>
+							</div>
+							<div class="prix">{{ plat.prix | currency:'XAF':'symbol':'1.0-0' }}</div>
+						</article>
+					}
+				</div>
+			}
+		}
+	}
+</section>

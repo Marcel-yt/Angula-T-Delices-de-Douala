@@ -1,4 +1,5 @@
 <section class="restaurant-list">
+  <h2 class="carte">Restaurants</h2>
   <div class="grid">
     @for (restaurant of restaurants(); track restaurant.id) {
       <app-restaurant-card [restaurant]="restaurant" (restaurantRated)="forwardRated($event)"></app-restaurant-card>

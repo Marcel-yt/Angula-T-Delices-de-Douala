@@ -1,0 +1,9 @@
+[
+    { "id": "d1", "nom": "Ndolè aux crevettes",         "prix": 3500, "categorie": "Plats",     "disponible": true,  "restaurantId": "1", "restaurantNom": "Le Calao Doré", "image": "/assets/images/plats/plat1.jpg" },
+    { "id": "d2", "nom": "Poulet DG",                   "prix": 4000, "categorie": "Plats",     "disponible": true,  "restaurantId": "3", "restaurantNom": "La Fourchette Camerounaise", "image": "/assets/images/plats/plat2.jpg" },
+    { "id": "d3", "nom": "Poisson braisé + miondo",     "prix": 3000, "categorie": "Grillades", "disponible": true,  "restaurantId": "4", "restaurantNom": "Saveurs du Wouri", "image": "/assets/images/plats/plat3.jpg" },
+    { "id": "d4", "nom": "Eru + water fufu",            "prix": 2500, "categorie": "Plats",     "disponible": true,  "restaurantId": "2", "restaurantNom": "Chez Madame Ngono", "image": "/assets/images/plats/plat4.jpg" },
+    { "id": "d5", "nom": "Koki + plantain mur",         "prix": 2000, "categorie": "Végétarien","disponible": true,  "restaurantId": "5", "restaurantNom": "L'Akwa Gourmand", "image": "/assets/images/plats/plat5.jpg" },
+    { "id": "d6", "nom": "Jus de bissap",               "prix": 1000, "categorie": "Boissons",  "disponible": true,  "restaurantId": "4", "restaurantNom": "Saveurs du Wouri", "image": "/assets/images/plats/plat6.jpg" },
+    { "id": "d7", "nom": "Jus de gingembre",            "prix": 1000, "categorie": "Boissons",  "disponible": true,  "restaurantId": "1", "restaurantNom": "Le Calao Doré", "image": "/assets/images/plats/plat7.jpg" }
+]

@@ -1,6 +1,9 @@
 <app-header [ratedCount]="ratedCount()" [average]="averageRating()"></app-header>
 
 <main class="content">
+  <!-- Section 1: Plats (nouveau) -->
+  <app-plats></app-plats>
+
   <div class="controls">
     <button class="toggle" (click)="filterHigh.update(v => !v)">
       {{ filterHigh() ? 'Montrer tout' : 'Filtrer ≥ 4★' }}

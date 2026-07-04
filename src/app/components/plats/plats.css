@@ -1,0 +1,66 @@
+.carte { padding: 1rem; background: #fff; border-radius: 8px; margin-bottom: 1.25rem; }
+.carte h2 { margin: 0 0 0.75rem 0; color: #316FB5 }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
+.plat-card { display:flex; flex-direction:column; align-items:center; text-align:center; background:#fff; border:1px solid #eee; border-radius:8px; overflow:hidden; box-shadow:0 2px 6px rgba(0,0,0,0.04); transition:transform .18s ease,box-shadow .18s ease; padding-bottom:8px }
+.plat-card:hover { transform:translateY(-4px); box-shadow:0 8px 22px rgba(0,0,0,0.08) }
+.plat-image { width:100%; height:160px; object-fit:cover; display:block }
+
+/* unavailable visuals */
+.plat-card.unavailable { opacity:0.78 }
+.plat-card.unavailable .plat-image { filter:grayscale(80%) brightness(0.7); }
+.plat-header { padding: 0.75rem 0.75rem 0.5rem 0.75rem; display:flex; align-items:center; justify-content:center; gap:0.5rem; flex-direction:column }
+.nom { font-weight:600; font-size:0.98rem }
+.restaurant { color:#316FB5; font-weight:500 }
+.prix { padding: 0 0.75rem 0.75rem 0.75rem; margin-top:10px; font-weight:700 }
+.badge{ background:#FDC416; color:#000; padding:4px 8px; border-radius:4px; font-size:0.75rem }
+
+.meta { display:flex; justify-content:space-between; padding: 0 0.75rem; color:#666; font-size:0.92rem; margin-top:6px }
+.categorie { font-style:italic }
+.disponibilite { font-weight:600 }
+.disponibilite.available { color: #1aab3b }
+.disponibilite:not(.available) { color: #c0392b }
+
+.controls-filters { display:flex; gap:8px; margin: 0 0 24px 0; align-items:center; flex-wrap:wrap; overflow:visible }
+.filter-btn { background:transparent; border:1px solid #ddd; padding:6px 10px; border-radius:6px; cursor:pointer }
+.filter-btn.active { background:#316FB5; color:#fff; border-color:transparent }
+
+.search { padding:6px 10px; border:1px solid #ddd; border-radius:6px; flex:1; min-width:140px; max-width:220px; margin-left:auto }
+.restaurant-filter { padding:6px 10px; border:1px solid #ddd; border-radius:6px }
+.rotation-toggle { position:absolute; top:8px; right:10px; z-index:4; background:rgba(255,255,255,0.12); color:#fff; border:none; padding:6px 8px; border-radius:6px; cursor:pointer }
+
+
+.plat-du-jour { margin: 22px 0 32px 0 }
+.plat-card.highlight { outline: none }
+
+/* Hero-style plat du jour */
+.plat-du-jour .hero { position:relative; height:320px; border-radius:12px; overflow:hidden; display:flex; align-items:center; justify-content:center }
+
+.plat-du-jour .hero::before { content:''; position:absolute; inset:0; background-image:var(--hero-image); background-size:cover; background-position:center; filter:blur(3px) brightness(0.48); transform:scale(1.03) }
+.plat-du-jour .hero::after { content:''; position:absolute; inset:0; background: linear-gradient(to bottom, rgba(0,0,0,0.12), rgba(0,0,0,0.38)); }
+.plat-du-jour .hero-content { position:relative; z-index:2; color:#fff; text-align:center; padding:24px; width:100% }
+.plat-du-jour .hero-section-title { position:absolute; top:14px; left:0; right:0; text-align:center; z-index:3; color:#fff; font-weight:700; letter-spacing:0.6px; text-shadow:0 3px 14px rgba(0,0,0,0.6) }
+.plat-du-jour .hero-title { font-size:2rem; margin:26px 0 6px 0; font-weight:800; letter-spacing:0.4px; text-shadow:0 6px 22px rgba(0,0,0,0.55) }
+.plat-du-jour .hero-sub { opacity:0.95; margin-bottom:8px; font-weight:600 }
+.plat-du-jour .hero-meta { display:flex; gap:12px; justify-content:center; align-items:center; margin-top:6px }
+.plat-du-jour .hero-category { background:rgba(255,255,255,0.08); padding:6px 10px; border-radius:6px }
+.plat-du-jour .hero-price { background:rgba(255,255,255,0.06); padding:6px 10px; border-radius:6px; font-weight:700 }
+.plat-du-jour .hero-badge { background:#FDC416; color:#000; display:inline-block; padding:6px 12px; border-radius:8px; margin-top:10px; font-weight:700 }
+
+.plat-du-jour-info { margin-top:16px; text-align:center; display:flex; flex-direction:column; gap:10px }
+.plat-du-jour-info .meta { justify-content:center }
+.plat-du-jour-info .prix { font-size:1.15rem; font-weight:800 }
+
+@media (max-width: 920px) {
+	.plat-du-jour .hero { height:240px }
+	.plat-du-jour .hero-title { font-size:1.5rem }
+}
+
+@media (max-width: 420px) {
+	.plat-du-jour .hero { height:180px }
+	.plat-du-jour .hero-title { font-size:1.15rem }
+}
+
+@media (max-width: 420px) {
+	.plat-image { height:110px }
+}
+
