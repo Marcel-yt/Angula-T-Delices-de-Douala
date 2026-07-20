@@ -1,0 +1,89 @@
+.preview-box {
+  margin: 2rem 0;
+  padding: 1.2rem;
+  background: #2c3e50;
+  color: #ecf0f1;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  border-left: 5px solid #d35400;
+}
+
+.preview-box h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: #f39c12;
+  font-size: 1rem;
+}
+
+.preview-box pre {
+  margin: 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.users-list-section {
+  margin-top: 3rem;
+  border-top: 2px solid #f1f2f6;
+  padding-top: 2rem;
+}
+
+.users-list-section h2 {
+  color: #2c3e50;
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.no-users {
+  text-align: center;
+  color: #7f8c8d;
+  font-style: italic;
+  padding: 2rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.table-responsive {
+  overflow-x: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+}
+
+.users-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  text-align: left;
+}
+
+.users-table th, .users-table td {
+  padding: 1rem 1.2rem;
+  border-bottom: 1px solid #f1f2f6;
+}
+
+.users-table th {
+  background: #f8f9fa;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+.users-table tr:last-child td {
+  border-bottom: none;
+}
+
+.users-table tr:hover {
+  background: #fafbfc;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .action-buttons {
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+}

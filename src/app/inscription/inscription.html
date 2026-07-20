@@ -1,0 +1,136 @@
+<div class="form-container">
+  <h1>Inscriptions <br /> Délices de Douala</h1>
+
+  <form (ngSubmit)="soumetre()">
+    <div class="form-line">
+      <div class="form-group">
+        <input type="text" name="nom" required
+               placeholder="Entrer votre nom"
+               [(ngModel)]="user.nom" />
+      </div>
+      <div class="form-group">
+        <input type="text" name="prenom" required
+               placeholder="Entrer votre prénom"
+               [(ngModel)]="user.prenom" />
+      </div>
+    </div>
+
+    <div class="form-line full-width">
+      <div class="form-group">
+        <input type="email" name="email" required
+               placeholder="Entrer votre email"
+               [(ngModel)]="user.email" />
+      </div>
+    </div>
+
+    <div class="form-line">
+      <div class="form-group">
+        <input type="password" name="motDePasse" required
+               placeholder="Entrer votre mot de passe"
+               [(ngModel)]="user.motDePasse" />
+      </div>
+      <div class="form-group">
+        <input type="password" name="motDePasse2" required
+               placeholder="Confirmer votre mot de passe"
+               [(ngModel)]="motDePasse2" />
+        @if (user.motDePasse && motDePasse2 && user.motDePasse !== motDePasse2) {
+          <small class="error-msg" style="color: #e74c3c; font-size: 0.85rem; margin-top: 0.3rem; font-weight: 500;">
+            Les mots de passe ne correspondent pas.
+          </small>
+        }
+      </div>
+    </div>
+    
+    <button type="submit" class="btn btn-primary"
+           [disabled]="!user.nom.trim() || !user.prenom.trim() || !user.email.trim() || !user.motDePasse.trim() || !motDePasse2.trim() || user.motDePasse !== motDePasse2">
+           {{ enEdition() ? 'Modifier' : 'Ajouter' }}
+    </button>
+  </form>
+
+  <!-- <div class="preview-box">
+    <h3>Aperçu en temps réel :</h3>
+    <pre>{{ user | json }}</pre>
+  </div> -->
+
+  <div class="users-list-section">
+    <h2>Utilisateurs inscrits</h2>
+    @if (users().length === 0) {
+      <p class="no-users">Aucun utilisateur inscrit pour le moment.</p>
+    } @else {
+      <div class="table-responsive">
+        <table class="users-table">
+          <thead>
+            <tr>
+              <th>Nom</th>
+              <th>Prénom</th>
+              <th>Email</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (u of users(); track u.id; let i = $index) {
+              <tr>
+                <td>{{ u.nom }}</td>
+                <td>{{ u.prenom }}</td>
+                <td>{{ u.email }}</td>
+                <td>
+                  <div class="action-buttons">
+                    <button type="button" class="btn btn-secondary btn-sm" (click)="modifier(i)">Modifier</button>
+                    <button type="button" class="btn btn-danger btn-sm" (click)="supprimer(i)">Supprimer</button>
+                  </div>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    }
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+<h1>Délices de Douala — Inscriptions</h1> 
+
+<form class="form-inline"> 
+  <input type="text" name="nom" required 
+         placeholder="Nom du client" 
+         [(ngModel)]="nom" /> 
+  <button type="button" 
+        [disabled]="!nom.trim()"
+        (click)="enregistrer()"> 
+    {{ enEdition() ? 'Modifier' : 'Ajouter' }} 
+
+    @if (!nom.trim()) { 
+    <small class="erreur">Le nom est obligatoire.</small> 
+    }
+  </button> 
+</form> 
+
+@if (clients().length === 0) { 
+  <p>Aucun client inscrit.</p> 
+} @else { 
+  <ul> 
+    @for (client of clients(); track $index; let i = $index) { 
+      <li class="ligne"> 
+        <span>{{ client }}</span> 
+        <span class="actions"> 
+          <button type="button" (click)="modifier(i)">Modifier</button> 
+          <button type="button" (click)="supprimer(i)">Supprimer</button> 
+        </span> 
+      </li> 
+    } 
+  </ul> 
+}
+-->
